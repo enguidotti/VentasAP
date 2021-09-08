@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ab61b9b183674136a9922a114be60ac1" Name="Diagram1">
+        <EntityTypeShape EntityType="apventasModel.Categoria" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Cliente" Width="1.5" PointX="6.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.DetalleIngreso" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.DetalleVenta" Width="1.5" PointX="11.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Local" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Marca" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.OrdenCompra" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Producto" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Rol" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.StockLocal" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.sysdiagrams" Width="1.5" PointX="3.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Venta" Width="1.5" PointX="9" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="apventasModel.FK_Producto_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_Venta_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_DetalleIngreso_OrdenCompra" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_DetalleIngreso_StockLocal" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_DetalleVenta_StockLocal" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_DetalleVenta_Venta" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_OrdenCompra_Local" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_StockLocal_Local" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_Producto_Marca" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_OrdenCompra_User" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_StockLocal_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_User_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="apventasModel.FK_Venta_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
