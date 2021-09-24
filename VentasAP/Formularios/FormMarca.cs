@@ -112,6 +112,8 @@ namespace VentasAP.Formularios
             //asignan los valores de las filas a las variables o textbox
             idMarca = int.Parse(dgvMarcas.CurrentRow.Cells[0].Value.ToString());
             txtNombre.Text = dgvMarcas.CurrentRow.Cells[1].Value.ToString();
+
+            btnEliminar.Enabled = true;
         }
         private void limpiar()
         {
@@ -119,6 +121,33 @@ namespace VentasAP.Formularios
             txtNombre.Text = "";
             //desmarca la fila seleccionada
             dgvMarcas.ClearSelection();
+            btnEliminar.Enabled = false;
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if(idMarca > 0)
+            {
+                //buscar por id de la marca
+                //Find => SELECT * FROM Marca WHERE id_marca = idMarca;
+                Marca marca = db.Marca.Find(idMarca);
+
+                if(marca != null)
+                {
+                    //remueve el registro de la tabla
+                    db.Marca.Remove(marca);//DELETE FROM Marca WHERE id_marca = marca
+                    //guarda los cambios
+                    db.SaveChanges();
+                    MessageBox.Show("Eliminado con éxito!");
+                    limpiar();
+                    cargarMarcas();
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();  
         }
     }
 }
