@@ -7,16 +7,15 @@
       <Diagram DiagramId="ab61b9b183674136a9922a114be60ac1" Name="Diagram1">
         <EntityTypeShape EntityType="apventasModel.Categoria" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.Cliente" Width="1.5" PointX="6.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="apventasModel.DetalleIngreso" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.DetalleIngreso" Width="1.5" PointX="4.875" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.DetalleVenta" Width="1.5" PointX="11.25" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="apventasModel.Local" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Local" Width="1.5" PointX="0.5" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.Marca" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.OrdenCompra" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.Producto" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="apventasModel.Rol" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Rol" Width="1.5" PointX="2.875" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.StockLocal" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="apventasModel.sysdiagrams" Width="1.5" PointX="3.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="apventasModel.User" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.User" Width="1.5" PointX="0.875" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.Venta" Width="1.5" PointX="9" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="apventasModel.FK_Producto_Categoria" ManuallyRouted="false" />
         <AssociationConnector Association="apventasModel.FK_Venta_Cliente" ManuallyRouted="false" />

@@ -227,5 +227,12 @@ namespace VentasAP.Formularios
                 }
             }
         }
+
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormMarca marca = new FormMarca();
+            marca.Show();
+        }
     }
 }

@@ -101,16 +101,6 @@
           <Property Name="id_local" Type="int" Nullable="false" />
           <Property Name="id_producto" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="id_user" />
@@ -300,7 +290,6 @@
           <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StockLocal" EntityType="Self.StockLocal" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Venta" EntityType="Self.Venta" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DetalleIngreso_OrdenCompra" Association="Self.FK_DetalleIngreso_OrdenCompra">
@@ -476,16 +465,6 @@
           <NavigationProperty Name="DetalleVenta" Relationship="Self.FK_DetalleVenta_StockLocal" FromRole="StockLocal" ToRole="DetalleVenta" />
           <NavigationProperty Name="Local" Relationship="Self.FK_StockLocal_Local" FromRole="StockLocal" ToRole="Local" />
           <NavigationProperty Name="Producto" Relationship="Self.FK_StockLocal_Producto" FromRole="StockLocal" ToRole="Producto" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -682,7 +661,6 @@
           <EntitySet Name="Producto" EntityType="Self.Producto" />
           <EntitySet Name="Rol" EntityType="Self.Rol" />
           <EntitySet Name="StockLocal" EntityType="Self.StockLocal" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="User" EntityType="Self.User" />
           <EntitySet Name="Venta" EntityType="Self.Venta" />
           <AssociationSet Name="FK_Producto_Categoria" Association="Self.FK_Producto_Categoria">
@@ -847,17 +825,6 @@
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
                 <ScalarProperty Name="id_local" ColumnName="id_local" />
                 <ScalarProperty Name="id_producto" ColumnName="id_producto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="apventasModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

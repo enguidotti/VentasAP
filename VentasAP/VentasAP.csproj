@@ -61,6 +61,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FormCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormCompra.Designer.cs">
+      <DependentUpon>FormCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormMarca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,7 @@
     <Compile Include="Formularios\FormProducto.Designer.cs">
       <DependentUpon>FormProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers.cs" />
     <Compile Include="Models\Categoria.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -118,9 +125,6 @@
     <Compile Include="Models\StockLocal.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -129,6 +133,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormCompra.resx">
+      <DependentUpon>FormCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormMarca.resx">
       <DependentUpon>FormMarca.cs</DependentUpon>
     </EmbeddedResource>

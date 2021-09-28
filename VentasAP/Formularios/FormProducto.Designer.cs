@@ -48,7 +48,10 @@ namespace VentasAP.Formularios
             this.label8 = new System.Windows.Forms.Label();
             this.cbMarcas = new System.Windows.Forms.ComboBox();
             this.cbCategorias = new System.Windows.Forms.ComboBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLimpiar
@@ -236,6 +239,23 @@ namespace VentasAP.Formularios
             this.cbCategorias.Size = new System.Drawing.Size(337, 28);
             this.cbCategorias.TabIndex = 27;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.marcasToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1273, 24);
+            this.menuStrip1.TabIndex = 28;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // marcasToolStripMenuItem
+            // 
+            this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
+            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.marcasToolStripMenuItem.Text = "Marcas";
+            this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
+            // 
             // FormProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,9 +280,13 @@ namespace VentasAP.Formularios
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormProducto";
             this.Text = "FormProducto";
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +313,7 @@ namespace VentasAP.Formularios
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbMarcas;
         private System.Windows.Forms.ComboBox cbCategorias;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem marcasToolStripMenuItem;
     }
 }
