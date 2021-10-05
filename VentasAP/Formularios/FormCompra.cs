@@ -43,6 +43,7 @@ namespace VentasAP.Formularios
                 txtNombre.Text = producto.nombre;
                 //asigna el idProducto a la variable
                 idProducto = producto.id_producto;
+                txtCompra.Text = producto.precio_compra.ToString();
             }
             else
             {
@@ -101,9 +102,9 @@ namespace VentasAP.Formularios
             if (idProducto > 0)
             {
                 string error = validarProducto();
-                if(error != "")
+                if (error != "")
                 {
-                    MessageBox.Show(error,"Validación",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    MessageBox.Show(error, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -188,6 +189,100 @@ namespace VentasAP.Formularios
             FormProducto producto = new FormProducto();//se instancia la clase(formulario)
             producto.Show();//se muestra la ventana
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            string error = "";
+            if (string.IsNullOrEmpty(cbLocal.Text))
+            {
+                error = "Debe seleccionar un local \n";
+            }
+            if (string.IsNullOrEmpty(txtFactura.Text))
+            {
+                error += "Debe ingresar el número de factura \n";
+            }
+            if (dgvDetalle.Rows.Count == 0)//verifica si no tiene productos
+            {
+                error += "Debe ingresar al menos un producto a la orden";
+            }
+            if (error != "")
+            {
+                MessageBox.Show(error, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                //se asigna el local seleccionado a un variable entera
+                int idLocal = int.Parse(cbLocal.SelectedValue.ToString()); 
+                //guardar en la tabla OrdenCompra
+                OrdenCompra orden = new OrdenCompra();//instanciar clase para acceder a sus métodos y atributos
+                //asignar valores a los atributos
+                orden.id_local = idLocal;
+                orden.fecha = dtFecha.Value;
+                orden.num_factura = int.Parse(txtFactura.Text);
+                orden.id_user = 1; //luego esto cambia y se utilizar el usuario logeado en el sistema
+                db.OrdenCompra.Add(orden);
+                db.SaveChanges();
+                //una vez guardado en DB podemos acceder al clave primaria auto generada
+                int idOrden = orden.id_orden;
+
+                //guardar en tabla detalle de compra
+                DetalleIngreso detalle = new DetalleIngreso();
+                //recorre todas las filas de nuestra grilla 
+                foreach (DataGridViewRow fila in dgvDetalle.Rows)
+                { 
+                    //asignamos valores a las variables
+                    int cantidad = int.Parse(fila.Cells[2].Value.ToString());
+                    int idProducto = int.Parse(fila.Cells[6].Value.ToString());       
+                    //invoca al método verificaStock para obtener el idStock del producto según el local
+                    int idStock = VerificaStock(idProducto,idLocal,cantidad);
+                    detalle.id_stock = idStock;
+                    detalle.cantidad = cantidad;
+                    detalle.precio_compra = int.Parse(fila.Cells[3].Value.ToString());
+                    detalle.descripcion = fila.Cells[5].Value.ToString();
+                    detalle.id_orden = idOrden;
+
+                    db.DetalleIngreso.Add(detalle);
+                    db.SaveChanges();
+                }
+                MessageBox.Show("Los registros se han agregado con éxito!");
+                Limpiar();
+            }
+        }
+
+        private int VerificaStock(int idProducto, int idLocal,int cantidad)
+        {
+            //consulta que verifica la existencia del producto en el local seleccionado
+            var query = db.StockLocal.FirstOrDefault(s => s.id_producto == idProducto && s.id_local == idLocal);
+            if(query == null)//que el producto en ese local no existe
+            {
+                StockLocal stock = new StockLocal();
+                stock.cantidad = cantidad;
+                stock.id_local = idLocal;
+                stock.id_producto = idProducto;
+
+                db.StockLocal.Add(stock);
+                db.SaveChanges();
+                //devuelve el id_stock que se genera al ingresar el registro
+                return stock.id_stock;
+            } 
+            else
+            {
+                //actualiza el stock existente,añadiendole la cantidad ingresada
+                query.cantidad = query.cantidad + cantidad;
+                db.SaveChanges();
+                //si existe el registro se retorna el id_stock del registro encontrado
+                return query.id_stock;
+            }
+        }
+        private void Limpiar()
+        {
+            cbLocal.SelectedIndex = -1;
+            dtFecha.Value = DateTime.Now;
+            txtFactura.Text = "";
+            txtTotal.Text = "0";
+            //limpia la grilla
+            dgvDetalle.Rows.Clear();
         }
     }
 
