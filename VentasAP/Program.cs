@@ -17,7 +17,7 @@ namespace VentasAP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormHome());//cambia el formulario que inicia la aplicación
+            Application.Run(new FormLogin());//cambia el formulario que inicia la aplicación
         }
     }
 }

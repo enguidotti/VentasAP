@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="apventasModel.Marca" Width="1.5" PointX="1.5" PointY="14.625" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.OrdenCompra" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.Producto" Width="1.5" PointX="3.75" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="apventasModel.Rol" Width="1.5" PointX="2.875" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="apventasModel.Rol" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.StockLocal" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.User" Width="1.5" PointX="0.875" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="apventasModel.Venta" Width="1.5" PointX="9" PointY="1" IsExpanded="true" />

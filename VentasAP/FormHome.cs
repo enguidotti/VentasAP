@@ -60,5 +60,10 @@ namespace VentasAP
                 formularioActivo.Close();
             }
         }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new Formularios.FormUser());
+        }
     }
 }

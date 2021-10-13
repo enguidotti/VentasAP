@@ -220,7 +220,7 @@ namespace VentasAP.Formularios
                 orden.id_local = idLocal;
                 orden.fecha = dtFecha.Value;
                 orden.num_factura = int.Parse(txtFactura.Text);
-                orden.id_user = 1; //luego esto cambia y se utilizar el usuario logeado en el sistema
+                orden.id_user = FormLogin.id_user; //luego esto cambia y se utilizar el usuario logeado en el sistema
                 db.OrdenCompra.Add(orden);
                 db.SaveChanges();
                 //una vez guardado en DB podemos acceder al clave primaria auto generada
