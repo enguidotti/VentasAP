@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colores.cs" />
     <Compile Include="FormHome.cs">
       <SubType>Form</SubType>
     </Compile>
