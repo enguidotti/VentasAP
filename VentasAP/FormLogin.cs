@@ -14,12 +14,15 @@ namespace VentasAP
     public partial class FormLogin : Form
     {
         private apventasEntities db = new apventasEntities();
-        public static int id_user;//primera forma
+        private Helpers help = new Helpers();
+        public static int id_user;
         public FormLogin()
         {
             InitializeComponent();
             // ControlBox = false;
             //MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
+            txtEmail.Text = "admin@gmail.com";
+            txtPassword.Text = "admin";
         }
 
         private void btnIngreso_Click(object sender, EventArgs e)
@@ -48,6 +51,17 @@ namespace VentasAP
                 else
                 {
                     MessageBox.Show("Email o Contraseña no son correctos");
+                }
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (txtEmail.Text.Trim() != string.Empty)
+            {
+                if (!help.emailValido(txtEmail.Text.Trim()))
+                {
+                    MessageBox.Show("El email no tiene el formato corrcto (mail@mail.com)");
                 }
             }
         }

@@ -14,6 +14,7 @@ namespace VentasAP.Formularios
     public partial class FormUser : Form
     {
         private apventasEntities db = new apventasEntities();
+        private Helpers help = new Helpers();
         public FormUser()
         {
             InitializeComponent();
@@ -96,6 +97,39 @@ namespace VentasAP.Formularios
             }
 
 
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if(txtEmail.Text.Trim() != "")
+            {
+                if (!help.emailValido(txtEmail.Text.Trim()))
+                {
+                    MessageBox.Show("El email no tiene el formato corrcto (mail@mail.com)");
+                }
+            }
+        }
+
+        private void txtRun_TextChanged(object sender, EventArgs e)
+        {
+            if(txtRun.Text.Trim() != "")
+            {
+                txtRun.Text = help.formatearRut(txtRun.Text.Trim());
+                //poner el cursor siempre al final del texto
+                txtRun.Select(txtRun.Text.Length, 0);
+            }
+        }
+
+        private void txtRun_Leave(object sender, EventArgs e)
+        {
+            if(txtRun.Text.Trim() != string.Empty)
+            {
+                if (!help.validarRut(txtRun.Text.Trim()))
+                {
+                    MessageBox.Show("El Run ingresado no es válido!");
+                    txtRun.Focus();
+                }
+            }
         }
     }
 }

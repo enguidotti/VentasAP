@@ -88,6 +88,7 @@ namespace VentasAP.Formularios
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(337, 26);
             this.txtEmail.TabIndex = 40;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label7
             // 
@@ -231,6 +232,8 @@ namespace VentasAP.Formularios
             this.txtRun.Name = "txtRun";
             this.txtRun.Size = new System.Drawing.Size(337, 26);
             this.txtRun.TabIndex = 48;
+            this.txtRun.TextChanged += new System.EventHandler(this.txtRun_TextChanged);
+            this.txtRun.Leave += new System.EventHandler(this.txtRun_Leave);
             // 
             // FormUser
             // 
