@@ -32,7 +32,7 @@ namespace VentasAP.Formularios
             this.cbLocal = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.txtFactura = new System.Windows.Forms.TextBox();
@@ -76,6 +76,7 @@ namespace VentasAP.Formularios
             // 
             // btnAgregar
             // 
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.Location = new System.Drawing.Point(1114, 203);
             this.btnAgregar.Name = "btnAgregar";
@@ -95,15 +96,15 @@ namespace VentasAP.Formularios
             this.label2.TabIndex = 28;
             this.label2.Text = "Local";
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(459, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 31);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Orden de Compra";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(459, 39);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(296, 31);
+            this.lblTitulo.TabIndex = 27;
+            this.lblTitulo.Text = "Añadir Orden Compra";
             // 
             // dtFecha
             // 
@@ -145,6 +146,7 @@ namespace VentasAP.Formularios
             // 
             // btnGuardar
             // 
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(1114, 327);
             this.btnGuardar.Name = "btnGuardar";
@@ -376,11 +378,12 @@ namespace VentasAP.Formularios
             this.Controls.Add(this.cbLocal);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormCompra";
             this.Text = "FormCompra";
+            this.Load += new System.EventHandler(this.FormCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -394,7 +397,7 @@ namespace VentasAP.Formularios
         private System.Windows.Forms.ComboBox cbLocal;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.DateTimePicker dtFecha;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtFactura;

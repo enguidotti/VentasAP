@@ -234,5 +234,33 @@ namespace VentasAP.Formularios
             FormMarca marca = new FormMarca();
             marca.Show();
         }
+        private void cargarColores()
+        {
+            //recorre todas los controles o herramientas que hay en el formulario
+            foreach (Control btns in Controls)
+            {
+                //verifica que los controles sean del tipo Button(que sea un botón)
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    //COlores es la clase con la lista de colores
+                    btn.BackColor = Colores.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = Colores.SecondaryColor;
+                }
+                lblTitulo.ForeColor = Colores.SecondaryColor;
+                dgvProductos.ColumnHeadersDefaultCellStyle.BackColor = Colores.PrimaryColor;
+                dgvProductos.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgvProductos.EnableHeadersVisualStyles = false;
+
+                dgvProductos.Font = new Font("Times", 14);
+
+            }
+        }
+        private void FormProducto_Load(object sender, EventArgs e)
+        {
+
+            cargarColores();
+        }
     }
 }

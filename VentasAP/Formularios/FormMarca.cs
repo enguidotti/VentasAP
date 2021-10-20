@@ -22,7 +22,29 @@ namespace VentasAP.Formularios
             //llama al método que carga la lista de marcas en la grilla
             cargarMarcas();
         }
+        private void cargarColores()
+        {
+            //recorre todas los controles o herramientas que hay en el formulario
+            foreach (Control btns in Controls)
+            {
+                //verifica que los controles sean del tipo Button(que sea un botón)
+                if(btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    //COlores es la clase con la lista de colores
+                    btn.BackColor = Colores.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = Colores.SecondaryColor;
+                }
+                lblTitulo.ForeColor = Colores.SecondaryColor;
+                dgvMarcas.ColumnHeadersDefaultCellStyle.BackColor = Colores.PrimaryColor;
+                dgvMarcas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgvMarcas.EnableHeadersVisualStyles = false;
 
+                dgvMarcas.Font = new Font("Times", 16);
+
+            }
+        }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text.Trim() != "")
@@ -94,17 +116,17 @@ namespace VentasAP.Formularios
         private void cargarMarcas()
         {
             //SELECT * FROM Marca; pero en entityframework
-            var listaMarcas = db.Marca.ToList();
+            //var listaMarcas = db.Marca.ToList();
             //otra forma de hacerlo
-            //var listaMarcas = (from m in db.Marca
-            //             select new
-            //             {
-            //                Id = m.id_marca,
-            //                Nombre = m.nombre
-            //             }).ToList();
+            var listaMarcas = (from m in db.Marca
+                               select new
+                               {
+                                   Id = m.id_marca,
+                                   Nombre = m.nombre
+                               }).ToList();
             //añadir la lista a la grilla
             dgvMarcas.DataSource = listaMarcas;
-            dgvMarcas.Columns[2].Visible = false;//permite ocultar colummnas
+            dgvMarcas.Columns[0].Visible = false;//permite ocultar colummnas
         }
 
         private void dgvMarcas_MouseClick(object sender, MouseEventArgs e)
@@ -148,6 +170,11 @@ namespace VentasAP.Formularios
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiar();  
+        }
+
+        private void FormMarca_Load(object sender, EventArgs e)
+        {
+            cargarColores();
         }
     }
 }

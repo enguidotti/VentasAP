@@ -44,7 +44,7 @@ namespace VentasAP.Formularios
             this.dgvUser = new System.Windows.Forms.DataGridView();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtRepetir = new System.Windows.Forms.TextBox();
             this.txtRun = new System.Windows.Forms.TextBox();
@@ -148,6 +148,7 @@ namespace VentasAP.Formularios
             // 
             // btnLimpiar
             // 
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.Location = new System.Drawing.Point(616, 194);
             this.btnLimpiar.Name = "btnLimpiar";
@@ -159,6 +160,7 @@ namespace VentasAP.Formularios
             // btnEliminar
             // 
             this.btnEliminar.Enabled = false;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.Location = new System.Drawing.Point(616, 145);
             this.btnEliminar.Name = "btnEliminar";
@@ -178,6 +180,7 @@ namespace VentasAP.Formularios
             // 
             // btnGuardar
             // 
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(616, 99);
             this.btnGuardar.Name = "btnGuardar";
@@ -197,15 +200,16 @@ namespace VentasAP.Formularios
             this.label2.TabIndex = 29;
             this.label2.Text = "Tipo Usuario";
             // 
-            // label1
+            // lblTitulo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(542, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 31);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Gestionar Usuarios";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(542, 15);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(265, 31);
+            this.lblTitulo.TabIndex = 28;
+            this.lblTitulo.Text = "Gestionar Usuarios";
             // 
             // txtPassword
             // 
@@ -258,9 +262,10 @@ namespace VentasAP.Formularios
             this.Controls.Add(this.dgvUser);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitulo);
             this.Name = "FormUser";
             this.Text = "FormUser";
+            this.Load += new System.EventHandler(this.FormUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -283,7 +288,7 @@ namespace VentasAP.Formularios
         private System.Windows.Forms.DataGridView dgvUser;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtRepetir;
         private System.Windows.Forms.TextBox txtRun;

@@ -21,6 +21,29 @@ namespace VentasAP.Formularios
             InitializeComponent();
             cargarLocales();
         }
+        private void cargarColores()
+        {
+            //recorre todas los controles o herramientas que hay en el formulario
+            foreach (Control btns in Controls)
+            {
+                //verifica que los controles sean del tipo Button(que sea un botón)
+                if (btns.GetType() == typeof(Button))
+                {
+                    Button btn = (Button)btns;
+                    //COlores es la clase con la lista de colores
+                    btn.BackColor = Colores.PrimaryColor;
+                    btn.ForeColor = Color.White;
+                    btn.FlatAppearance.BorderColor = Colores.SecondaryColor;
+                }
+                lblTitulo.ForeColor = Colores.SecondaryColor;
+                dgvDetalle.ColumnHeadersDefaultCellStyle.BackColor = Colores.PrimaryColor;
+                dgvDetalle.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                dgvDetalle.EnableHeadersVisualStyles = false;
+
+                dgvDetalle.Font = new Font("Times", 14);
+
+            }
+        }
         //cargar locales
         private void cargarLocales()
         {
@@ -283,6 +306,11 @@ namespace VentasAP.Formularios
             txtTotal.Text = "0";
             //limpia la grilla
             dgvDetalle.Rows.Clear();
+        }
+
+        private void FormCompra_Load(object sender, EventArgs e)
+        {
+            cargarColores();
         }
     }
 
