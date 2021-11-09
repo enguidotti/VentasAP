@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,8 +21,16 @@ namespace VentasAP.Formularios
             InitializeComponent();
             CargarRol();
             CargarGrilla();
+            CargarReporte();
         }
-
+      private void CargarReporte()
+        {
+            var listaUsuario = db.User.ToList();
+            ReportDataSource report = new ReportDataSource("Usuario",listaUsuario);
+            rvUsuario.LocalReport.DataSources.Clear();
+            rvUsuario.LocalReport.DataSources.Add(report);
+            rvUsuario.RefreshReport();
+        }
         private void CargarRol()
         {
             var listaRol = db.Rol.ToList();
@@ -67,7 +76,7 @@ namespace VentasAP.Formularios
                 error += "Debe ingresar una Contraseña \n";
             if (string.IsNullOrEmpty(txtRepetir.Text))
                 error += "Debe repetir contraseña \n";
-            if(!string.IsNullOrEmpty(txtPassword.Text) && !string.IsNullOrEmpty(txtRepetir.Text) && txtPassword.Text != txtRepetir.Text)
+            if (!string.IsNullOrEmpty(txtPassword.Text) && !string.IsNullOrEmpty(txtRepetir.Text) && txtPassword.Text != txtRepetir.Text)
                 error += "Las contraseñas deben ser iguales \n";
 
             return error;
@@ -76,7 +85,7 @@ namespace VentasAP.Formularios
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             string mensaje = Validar();
-            if(mensaje != "")
+            if (mensaje != "")
             {
                 MessageBox.Show(mensaje);
             }
@@ -101,7 +110,7 @@ namespace VentasAP.Formularios
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            if(txtEmail.Text.Trim() != "")
+            if (txtEmail.Text.Trim() != "")
             {
                 if (!help.emailValido(txtEmail.Text.Trim()))
                 {
@@ -112,7 +121,7 @@ namespace VentasAP.Formularios
 
         private void txtRun_TextChanged(object sender, EventArgs e)
         {
-            if(txtRun.Text.Trim() != "")
+            if (txtRun.Text.Trim() != "")
             {
                 txtRun.Text = help.formatearRut(txtRun.Text.Trim());
                 //poner el cursor siempre al final del texto
@@ -122,7 +131,7 @@ namespace VentasAP.Formularios
 
         private void txtRun_Leave(object sender, EventArgs e)
         {
-            if(txtRun.Text.Trim() != string.Empty)
+            if (txtRun.Text.Trim() != string.Empty)
             {
                 if (!help.validarRut(txtRun.Text.Trim()))
                 {
@@ -157,6 +166,7 @@ namespace VentasAP.Formularios
         private void FormUser_Load(object sender, EventArgs e)
         {
             cargarColores();
+            this.rvUsuario.RefreshReport();
         }
     }
 }

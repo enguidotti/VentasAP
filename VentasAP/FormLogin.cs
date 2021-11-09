@@ -15,14 +15,15 @@ namespace VentasAP
     {
         private apventasEntities db = new apventasEntities();
         private Helpers help = new Helpers();
+        //variables static que serán accedidas desde otros formularios
         public static int id_user;
+        public static string nombre_user;
+        public static int id_rol;
         public FormLogin()
         {
             InitializeComponent();
             // ControlBox = false;
             //MaximizedBounds = Screen.FromHandle(Handle).WorkingArea;
-            txtEmail.Text = "admin@gmail.com";
-            txtPassword.Text = "admin";
         }
 
         private void btnIngreso_Click(object sender, EventArgs e)
@@ -38,15 +39,16 @@ namespace VentasAP
             {
                 //consulta para verficar existencia del usuario 
                 User user = db.User.FirstOrDefault(u => u.email.Equals(txtEmail.Text.Trim()) && u.password.Equals(txtPassword.Text));
-                if(user != null)
+                if (user != null)
                 {
+                    //una vez logeado se asignan los valores a las variables statics
                     id_user = user.id_user;
-                    if (user.id_rol == 1)
-                    {
-                        FormHome home = new FormHome();
-                        home.Show();
-                        this.Hide();
-                    }
+                    nombre_user = user.nombres + " " + user.apellidos;
+                    id_rol = user.id_rol;
+
+                    FormHome home = new FormHome();
+                    home.Show();
+                    this.Hide();
                 }
                 else
                 {

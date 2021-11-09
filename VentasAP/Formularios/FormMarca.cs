@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,23 @@ namespace VentasAP.Formularios
             InitializeComponent();
             //llama al método que carga la lista de marcas en la grilla
             cargarMarcas();
+            cargarReporte();
+        }
+        private void cargarReporte()
+        {
+            var listaMarcas = (from m in db.Marca
+                               select new
+                               {
+                                   m.id_marca,
+                                   m.nombre
+                               }).ToList();
+            if (listaMarcas.Count() > 0)
+            {
+                ReportDataSource report = new ReportDataSource("Marca", listaMarcas);
+                rvMarca.LocalReport.DataSources.Clear();
+                rvMarca.LocalReport.DataSources.Add(report);
+                rvMarca.RefreshReport();
+            }
         }
         private void cargarColores()
         {
@@ -127,6 +145,8 @@ namespace VentasAP.Formularios
             //añadir la lista a la grilla
             dgvMarcas.DataSource = listaMarcas;
             dgvMarcas.Columns[0].Visible = false;//permite ocultar colummnas
+
+            
         }
 
         private void dgvMarcas_MouseClick(object sender, MouseEventArgs e)
@@ -175,6 +195,7 @@ namespace VentasAP.Formularios
         private void FormMarca_Load(object sender, EventArgs e)
         {
             cargarColores();
+            this.rvMarca.RefreshReport();
         }
     }
 }

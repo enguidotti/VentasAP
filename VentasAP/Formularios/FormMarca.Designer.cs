@@ -29,6 +29,9 @@ namespace VentasAP.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.MarcaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -36,8 +39,14 @@ namespace VentasAP.Formularios
             this.dgvMarcas = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.rvMarca = new Microsoft.Reporting.WinForms.ReportViewer();
+            ((System.ComponentModel.ISupportInitialize)(this.MarcaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).BeginInit();
             this.SuspendLayout();
+            // 
+            // MarcaBindingSource
+            // 
+            this.MarcaBindingSource.DataSource = typeof(VentasAP.Models.Marca);
             // 
             // lblTitulo
             // 
@@ -114,11 +123,24 @@ namespace VentasAP.Formularios
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // rvMarca
+            // 
+            reportDataSource1.Name = "Marca";
+            reportDataSource1.Value = this.MarcaBindingSource;
+            this.rvMarca.LocalReport.DataSources.Add(reportDataSource1);
+            this.rvMarca.LocalReport.ReportEmbeddedResource = "VentasAP.Reportes.Marca.rdlc";
+            this.rvMarca.Location = new System.Drawing.Point(820, 106);
+            this.rvMarca.Name = "rvMarca";
+            this.rvMarca.ServerReport.BearerToken = null;
+            this.rvMarca.Size = new System.Drawing.Size(396, 246);
+            this.rvMarca.TabIndex = 7;
+            // 
             // FormMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1449, 450);
+            this.Controls.Add(this.rvMarca);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvMarcas);
@@ -129,6 +151,7 @@ namespace VentasAP.Formularios
             this.Name = "FormMarca";
             this.Text = "FormMarca";
             this.Load += new System.EventHandler(this.FormMarca_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.MarcaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarcas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -144,5 +167,7 @@ namespace VentasAP.Formularios
         private System.Windows.Forms.DataGridView dgvMarcas;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnLimpiar;
+        private Microsoft.Reporting.WinForms.ReportViewer rvMarca;
+        private System.Windows.Forms.BindingSource MarcaBindingSource;
     }
 }

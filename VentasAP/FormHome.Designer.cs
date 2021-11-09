@@ -36,6 +36,7 @@ namespace VentasAP
             this.btnCerrar = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.btnFactura = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
             this.btnMarca = new System.Windows.Forms.Button();
             this.btnProducto = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@ namespace VentasAP
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.btnFactura);
             this.panelMenu.Controls.Add(this.btnUser);
             this.panelMenu.Controls.Add(this.btnMarca);
             this.panelMenu.Controls.Add(this.btnProducto);
@@ -127,6 +129,23 @@ namespace VentasAP
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(803, 463);
             this.panelContent.TabIndex = 2;
+            // 
+            // btnFactura
+            // 
+            this.btnFactura.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFactura.FlatAppearance.BorderSize = 0;
+            this.btnFactura.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFactura.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFactura.ForeColor = System.Drawing.Color.White;
+            this.btnFactura.Image = global::VentasAP.Properties.Resources.lupa;
+            this.btnFactura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFactura.Location = new System.Drawing.Point(0, 340);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Size = new System.Drawing.Size(220, 60);
+            this.btnFactura.TabIndex = 5;
+            this.btnFactura.Text = "Buscar Factura";
+            this.btnFactura.UseVisualStyleBackColor = true;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
             // 
             // btnUser
             // 
@@ -228,6 +247,7 @@ namespace VentasAP
         private System.Windows.Forms.Button btnMarca;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnUser;
+        private System.Windows.Forms.Button btnFactura;
     }
 }
 

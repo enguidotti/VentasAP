@@ -20,6 +20,13 @@ namespace VentasAP
         {
             InitializeComponent();
             rnd = new Random();
+            lblTitle.Text = "Bienvenido " + FormLogin.nombre_user;
+            if(FormLogin.id_rol != 1)
+            {
+                btnMarca.Visible = false;
+                btnProducto.Visible = false;
+                btnUser.Visible = false;
+            }
         }
 
         //seleccionar los colores de fondo 
@@ -117,13 +124,18 @@ namespace VentasAP
             if (formularioActivo != null)
             {
                 formularioActivo.Close();
-                lblTitle.Text = "Bienvenidos al sistema";
+                lblTitle.Text = "Bienvenido " + FormLogin.nombre_user;
             }
         }
 
         private void btnUser_Click(object sender, EventArgs e)
         {
             abrirFormulario(new Formularios.FormUser(), sender, "Usuarios");
+        }
+
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
+            abrirFormulario(new Formularios.FormReporte(), sender, "FACTURAS");
         }
     }
 }

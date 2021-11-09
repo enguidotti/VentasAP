@@ -29,6 +29,8 @@ namespace VentasAP.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.cbRol = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,7 +50,10 @@ namespace VentasAP.Formularios
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtRepetir = new System.Windows.Forms.TextBox();
             this.txtRun = new System.Windows.Forms.TextBox();
+            this.rvUsuario = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.UserBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // cbRol
@@ -239,11 +244,28 @@ namespace VentasAP.Formularios
             this.txtRun.TextChanged += new System.EventHandler(this.txtRun_TextChanged);
             this.txtRun.Leave += new System.EventHandler(this.txtRun_Leave);
             // 
+            // rvUsuario
+            // 
+            reportDataSource1.Name = "Usuario";
+            reportDataSource1.Value = this.UserBindingSource;
+            this.rvUsuario.LocalReport.DataSources.Add(reportDataSource1);
+            this.rvUsuario.LocalReport.ReportEmbeddedResource = "VentasAP.Reportes.Usuario.rdlc";
+            this.rvUsuario.Location = new System.Drawing.Point(107, 515);
+            this.rvUsuario.Name = "rvUsuario";
+            this.rvUsuario.ServerReport.BearerToken = null;
+            this.rvUsuario.Size = new System.Drawing.Size(1129, 246);
+            this.rvUsuario.TabIndex = 49;
+            // 
+            // UserBindingSource
+            // 
+            this.UserBindingSource.DataSource = typeof(VentasAP.Models.User);
+            // 
             // FormUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 450);
+            this.ClientSize = new System.Drawing.Size(1329, 820);
+            this.Controls.Add(this.rvUsuario);
             this.Controls.Add(this.txtRun);
             this.Controls.Add(this.txtRepetir);
             this.Controls.Add(this.cbRol);
@@ -267,6 +289,7 @@ namespace VentasAP.Formularios
             this.Text = "FormUser";
             this.Load += new System.EventHandler(this.FormUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UserBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,5 +315,7 @@ namespace VentasAP.Formularios
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtRepetir;
         private System.Windows.Forms.TextBox txtRun;
+        private Microsoft.Reporting.WinForms.ReportViewer rvUsuario;
+        private System.Windows.Forms.BindingSource UserBindingSource;
     }
 }
